@@ -37,8 +37,8 @@ voucher_module.create_voucher(student1, 500, "Books")
 voucher_module.create_voucher(student2, 800, "Exam Fee")
 
 # Get vouchers for a specific student
-john_vouchers = voucher_module.get_student_vouchers(student1)
+zain_vouchers = voucher_module.get_student_vouchers(student1)
 
-# Print vouchers for John
-for voucher in john_vouchers:
+# Print vouchers for zain
+for voucher in zain_vouchers:
     print(f"Voucher ID: {voucher.voucher_id}, Amount: PKR{voucher.amount}, Purpose: {voucher.purpose}")
