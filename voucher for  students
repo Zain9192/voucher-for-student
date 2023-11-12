@@ -1,0 +1,44 @@
+class Student:
+    def __init__(self, student_id, name):
+        self.student_id = student_id
+        self.name = name
+
+class FinancialVoucher:
+    def __init__(self, voucher_id, student, amount, purpose):
+        self.voucher_id = voucher_id
+        self.student = student
+        self.amount = amount
+        self.purpose = purpose
+
+class VoucherModule:
+    def __init__(self):
+        self.vouchers = []
+
+    def create_voucher(self, student, amount, purpose):
+        voucher_id = len(self.vouchers) + 1
+        voucher = FinancialVoucher(voucher_id, student, amount, purpose)
+        self.vouchers.append(voucher)
+        return voucher
+
+    def get_student_vouchers(self, student):
+        student_vouchers = [voucher for voucher in self.vouchers if voucher.student == student]
+        return student_vouchers
+
+# Create students
+student1 = Student(1, "Zain Murtaza")
+student2 = Student(2, "Amna Haider")
+
+# Create voucher module
+voucher_module = VoucherModule()
+
+# Create vouchers
+voucher_module.create_voucher(student1, 1000, "Tuition Fee")
+voucher_module.create_voucher(student1, 500, "Books")
+voucher_module.create_voucher(student2, 800, "Exam Fee")
+
+# Get vouchers for a specific student
+john_vouchers = voucher_module.get_student_vouchers(student1)
+
+# Print vouchers for John
+for voucher in john_vouchers:
+    print(f"Voucher ID: {voucher.voucher_id}, Amount: PKR{voucher.amount}, Purpose: {voucher.purpose}")
