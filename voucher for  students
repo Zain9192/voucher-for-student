@@ -26,7 +26,7 @@ class VoucherModule:
 
 # Create students
 student1 = Student(1, "Zain Murtaza")
-student2 = Student(2, "Amna Haider")
+student2 = Student(2, "Ali")
 
 # Create voucher module
 voucher_module = VoucherModule()
